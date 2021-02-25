@@ -20,8 +20,12 @@ public class GameOver : MonoBehaviour
     {
      if (gameOver && Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(0);
-        }   
+            SceneManager.LoadScene(1);
+        }
+     if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void OnGameOver()
