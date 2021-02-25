@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingBlockScript : MonoBehaviour
 {
     public Vector2 speedMinMax;
+    public static event System.Action OnBlockDestroy;
     float speed;
 
     float visibleHeightThreshold;
@@ -24,6 +25,14 @@ public class FallingBlockScript : MonoBehaviour
         if (transform.position.y < visibleHeightThreshold)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(OnBlockDestroy!= null)
+        {
+            OnBlockDestroy();
         }
     }
 }
